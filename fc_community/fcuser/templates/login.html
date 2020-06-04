@@ -4,7 +4,7 @@
     <div class="col-12 text-center">
       <h1>로그인</h1>
     </div>
-  </div>
+  </div> 
   <div class="row mt-5">
     <div class="col-12">
       <form method="POST" action=".">
@@ -16,8 +16,12 @@
           <label for="{{field.id_for_label}}">사용자 이름</label>
           <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label}}" name="{{field.name}}" placeholder="{{field.label}}" />
         </div>
-        {% endfor %}
+        {% if field.errors %}
+        <span style="color: red;" >{{field.errors}}</span>
+        {% endif %}
 
+        {% endfor %}
+        
         
 
         <!-- <div class="form-group">

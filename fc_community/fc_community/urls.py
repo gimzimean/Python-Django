@@ -20,5 +20,6 @@ from fcuser.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),  # admin이 있는 url을 사용하겠다./
     path('fcuser/', include('fcuser.urls')),
+    path('board/', include('board.urls')),
     path('', home),
 ]
