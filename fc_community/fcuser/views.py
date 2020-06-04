@@ -8,10 +8,17 @@ from .models import Fcuser
 
 def home(request):
     user_id = request.session.get('user')
+    print("userId", user_id)
     if user_id:
         fcuser = Fcuser.objects.get(pk=user_id)
         return HttpResponse(fcuser.username)
     return HttpResponse('home')
+
+
+def logout(request):
+    if request.session.get('user'):
+        del(request.session['user'])
+    return redirect('/')
 
 
 def login(request):
