@@ -12,8 +12,15 @@
           <label for="title">제목</label>
           <input class="form-control" readonly id="title" value="{{board.title}}"/>
           <label for="contents">내용</label>
-          
           <textarea  class="form-control" readonly>{{board.contents}}</textarea>
+          <label for="tags">태그</label>
+          <span id="tags" class="form-control">
+            {{ board.tags.all|join:"," }} 
+            <!-- 앞에 있는 리스트 사이사이에 ','를 추가 -->
+            <!-- {% for tag in board.tags.all %}
+            {{ tag.name }},
+            {% endfor %} -->
+          </span>
         </div>
         <button type="submit" class="btn btn-primary" onclick="location.href='/board/list/'">돌아가기</button>
       </form>
